@@ -1,6 +1,7 @@
 import cv2
 import os
 import sys
+import Recognizer
 from flask import Flask
 
 def get_output_filename(ipfilename):
@@ -32,6 +33,8 @@ def read_and_write():
       
       # Write the frame into the file 'output.avi'
       out1.write(frame)
+
+      frame = Recognizer.predict_and_rectangle(frame)
 
       # Display the resulting frame    
       cv2.imshow('frame',frame)
