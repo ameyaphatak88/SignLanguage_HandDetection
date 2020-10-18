@@ -9,17 +9,17 @@ def get_output_filename(ipfilename):
   return a
 
 
-def read_and_write(filepath):
-  assert os.path.isfile(filepath), 'Invalid filepath as argument'
+def read_and_write():
+ # assert os.path.isfile(filepath), 'Invalid filepath as argument'
 
-  video1 = cv2.VideoCapture(filepath)
+  video1 = cv2.VideoCapture(0)
 
   frame_width  = int(video1.get(3)) # float
   frame_height = int(video1.get(4)) # float
 
   s = (frame_width, frame_height)
 
-  outfile = get_output_filename(filepath)
+  outfile = "outp"
   out1 = cv2.VideoWriter(outfile + '_out.mkv',
                         cv2.VideoWriter_fourcc('M','J','P','G'), 
                         100, 
@@ -49,6 +49,6 @@ def read_and_write(filepath):
 
 
 if __name__ == "__main__":
-  assert (len(sys.argv) == 2), 'Required number of arguments not passed'
-  filepath = sys.argv[1]
-  read_and_write(filepath)
+  #assert (len(sys.argv) == 2), 'Required number of arguments not passed'
+  #filepath = sys.argv[1]
+  read_and_write()
