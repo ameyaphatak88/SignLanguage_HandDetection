@@ -2,6 +2,7 @@
 *.avi
 *.xml
 __pycache__/
+YOLO/
 train/
 test/
 utils/

@@ -3,18 +3,18 @@ import cv2
 import numpy as np
 font = cv2.FONT_HERSHEY_SIMPLEX
 
-facec = cv2.CascadeClassifier('hand.xml')
+facec = cv2.CascadeClassifier('aGest.xml')
 #model = FacialExpressionModel("model.json", "model_weights.h5")
 
 
 
 def predict_and_rectangle(fr):
     gray_fr = cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY)
-    faces = facec.detectMultiScale(gray_fr, 1.3, 5)
+    faces = facec.detectMultiScale(gray_fr, 1.5, 2)
 
     for(x, y, w, h) in faces:
         fc = gray_fr[y:y+h, x:x+w]
-        roi = cv2.resize(fc, (48, 48))
+        roi = cv2.resize(fc, (200, 200))
 
         #pred = model.predict_emotion(roi[np.newaxis, :, :, np.newaxis])
 
